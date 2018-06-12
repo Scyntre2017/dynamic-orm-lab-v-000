@@ -24,7 +24,7 @@ class InteractiveRecord
     column = hash.keys.first
     value = hash.values.first
     binding.pry
-    sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE #{column} = '#{value}'"
     DB[:conn].execute(sql)
   end
 
