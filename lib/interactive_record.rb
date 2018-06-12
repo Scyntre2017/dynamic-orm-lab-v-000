@@ -20,8 +20,11 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(attribute)
-
+  def self.find_by(hash)
+    column = hash.keys.first
+    binding.pry
+    sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+    DB[:conn].execute(sql)
   end
 
   def table_name_for_insert
